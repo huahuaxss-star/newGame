@@ -80,7 +80,7 @@ function showTitle() {
       <img class="t2-layer t2-ticket" src="assets/title_ticket.png" alt="">
       <img class="t2-layer t2-hippo" src="assets/title_hippo.png" alt="">
       <div class="t2-row" style="top:1.5%"><img class="t2-logo" src="assets/title_logo.png" alt=""></div>
-      <div class="t2-row t2-tagrow" style="top:20%"><img class="t2-tag" src="assets/title_tagline.png" alt=""></div>
+      <div class="t2-row t2-tagrow" style="top:31%"><img class="t2-tag" src="assets/title_tagline.png" alt=""></div>
       <div class="t2-row" style="bottom:3.5%"><button class="bigbtn green t2-start" id="startbtn">▶ 轻触开始</button></div>
     </div></div>`;
   document.getElementById('startbtn').onclick = () => { sfx.click(); playBgm('bgm_intro'); runIntro(); };
