@@ -3,6 +3,10 @@
 一只被魔术箱意外发射出去的马戏团河马，只想回家蹭顿免费早餐。
 仿《Capybara GO》的横版闯关 + 自走战斗 roguelike，纯 Web（HTML/CSS/JS，无需编译）。
 
+## 在线试玩
+
+[https://huahuaxss-star.github.io/newGame/](https://huahuaxss-star.github.io/newGame/)
+
 ## 一键启动
 
 - **macOS**：双击 `启动游戏.command`
