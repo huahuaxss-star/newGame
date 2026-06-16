@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap');
 
 :root{
+  --game-w:432px; --game-h:768px;
   --sky-top:#79c4ee; --sky-bot:#cfeeff;
   --wood:#9a6638; --wood-d:#673f1f; --wood-l:#b9824c; --wood-hi:#d7a766;
   --cream:#fdf3da; --cream2:#f4e3b8; --cream-edge:#e3c690;
@@ -18,18 +19,18 @@ html,body{height:100%;}
 body{background:#241a12;font-family:"Baloo 2","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;color:var(--ink);display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none;}
 #app{width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;}
 
-.game{position:relative;width:420px;height:910px;overflow:hidden;display:flex;flex-direction:column;background:var(--sky-bot);box-shadow:0 20px 70px rgba(0,0,0,.55);transform:scale(var(--gs,1));transform-origin:center center;}
+.game{position:relative;width:var(--game-w);height:var(--game-h);flex:0 0 var(--game-w);overflow:hidden;display:flex;flex-direction:column;background:var(--sky-bot);box-shadow:0 20px 70px rgba(0,0,0,.55);transform:scale(var(--gs,1));transform-origin:center center;}
 
 /* 顶栏 */
-.topbar{position:absolute;top:0;left:0;right:0;height:58px;display:flex;align-items:flex-start;justify-content:space-between;padding:10px 12px;z-index:30;}
-.topicon{width:50px;height:50px;cursor:pointer;filter:drop-shadow(0 3px 2px rgba(0,0,0,.32));}
+.topbar{position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:flex-start;justify-content:space-between;padding:9px 12px;z-index:30;}
+.topicon{width:46px;height:46px;cursor:pointer;filter:drop-shadow(0 3px 2px rgba(0,0,0,.32));}
 .roundtag{position:absolute;left:50%;top:14px;transform:translateX(-50%);font-weight:800;font-size:20px;color:#fff;text-shadow:0 2px 0 #00000066,0 0 3px #0006;display:none;}
-.daybadge{position:absolute;left:14px;top:108px;z-index:25;width:78px;}
+.daybadge{position:absolute;left:14px;top:84px;z-index:25;width:72px;}
 .daybadge-img{width:100%;display:block;filter:drop-shadow(0 3px 3px rgba(0,0,0,.32));}
 .daybadge .dn{position:absolute;left:0;right:0;top:60%;transform:translateY(-50%);text-align:center;font-size:22px;font-weight:800;color:var(--ink);line-height:1;}
 
 /* 场景 */
-.scene{position:relative;height:44%;overflow:hidden;flex:none;background:linear-gradient(#7ec8ef 0%,#bfe6ee 44%,#dccfa0 66%,#d9b069 100%);}
+.scene{position:relative;height:43%;overflow:hidden;flex:none;background:linear-gradient(#7ec8ef 0%,#bfe6ee 44%,#dccfa0 66%,#d9b069 100%);}
 .bg{position:absolute;left:0;right:0;overflow:hidden;}
 .bg .track{display:flex;height:100%;width:max-content;align-items:flex-end;will-change:transform;}
 .bg img{height:100%;width:auto;display:block;}
@@ -41,8 +42,8 @@ body{background:#241a12;font-family:"Baloo 2","PingFang SC","Hiragino Sans GB","
 .bg-ground .track{animation:bgscroll 5s linear infinite;}
 .scene.paused .track{animation-play-state:paused;}
 @keyframes bgscroll{from{transform:translateX(0)}to{transform:translateX(-33.3333%)}}
-.battle-hippo{height:158px;width:auto;display:block;filter:drop-shadow(0 6px 4px rgba(0,0,0,.3));}
-.enemy-img{height:150px;width:auto;display:block;filter:drop-shadow(0 5px 3px rgba(0,0,0,.28));}
+.battle-hippo{height:146px;width:auto;display:block;filter:drop-shadow(0 6px 4px rgba(0,0,0,.3));}
+.enemy-img{height:138px;width:auto;display:block;filter:drop-shadow(0 5px 3px rgba(0,0,0,.28));}
 .enemy-anim{background-repeat:no-repeat;background-position:0 0;filter:drop-shadow(0 5px 3px rgba(0,0,0,.28));}
 @keyframes enwalk{from{background-position-x:0}to{background-position-x:calc(-1 * var(--sw))}}
 @keyframes dustpop{0%{opacity:0;transform:scale(.4)}30%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.25)}}
@@ -62,7 +63,7 @@ body{background:#241a12;font-family:"Baloo 2","PingFang SC","Hiragino Sans GB","
 .unit .sprite{font-size:74px;line-height:1;display:inline-block;filter:drop-shadow(0 5px 3px rgba(0,0,0,.25));}
 .hippo-unit{left:13%;}
 .hippo-sprite{width:128px;height:148px;background:url('../assets/hippo_run.png') 0 0 / 1024px 148px no-repeat;animation:hipporun .82s steps(8) infinite;filter:drop-shadow(0 6px 3px rgba(0,0,0,.28));}
-.pedestal-hippo{transform:scale(1.5);transform-origin:center bottom;margin:30px auto 8px;filter:drop-shadow(0 0 18px #ffd86a99);}
+.pedestal-hippo{transform:scale(1.12);transform-origin:center bottom;margin:4px auto -6px;filter:drop-shadow(0 0 18px #ffd86a99);}
 @keyframes hipporun{from{background-position-x:0;}to{background-position-x:-1024px;}}
 .enemy-unit{right:12%;}
 .enemy-unit.dead{opacity:.18;filter:grayscale(1);}
@@ -85,11 +86,11 @@ body{background:#241a12;font-family:"Baloo 2","PingFang SC","Hiragino Sans GB","
 @keyframes scrflash{0%{opacity:.6}100%{opacity:0}}
 
 /* 下半部木质面板 */
-.lower{flex:1;display:flex;flex-direction:column;background:linear-gradient(var(--wood-l),var(--wood));border-top:4px solid var(--wood-d);box-shadow:inset 0 3px 0 var(--wood-hi);padding:10px 12px 14px;z-index:15;min-height:0;}
+.lower{flex:1;display:flex;flex-direction:column;background:linear-gradient(var(--wood-l),var(--wood));border-top:4px solid var(--wood-d);box-shadow:inset 0 3px 0 var(--wood-hi);padding:8px 10px 10px;z-index:15;min-height:0;}
 
 /* HUD 药丸 + 头像 */
-.pill{display:flex;align-items:center;gap:5px;background:linear-gradient(var(--cream),#f6e8c4);border:3px solid var(--wood-d);border-radius:20px;padding:6px 8px;box-shadow:0 3px 0 #00000033,inset 0 2px 0 #fff;overflow:hidden;}
-.avatar{width:44px;height:44px;border-radius:50%;border:3px solid var(--wood);background:#fff;overflow:hidden;flex:none;box-shadow:inset 0 2px 4px #0002;}
+.pill{display:flex;align-items:center;gap:4px;background:linear-gradient(var(--cream),#f6e8c4);border:3px solid var(--wood-d);border-radius:18px;padding:5px 7px;box-shadow:0 3px 0 #00000033,inset 0 2px 0 #fff;overflow:hidden;}
+.avatar{width:40px;height:40px;border-radius:50%;border:3px solid var(--wood);background:#fff;overflow:hidden;flex:none;box-shadow:inset 0 2px 4px #0002;}
 .avatar img{width:110%;height:110%;object-fit:cover;}
 .lvlcol{display:flex;flex-direction:column;gap:2px;min-width:50px;flex:none;}
 .exprow{display:flex;align-items:center;gap:3px;}
@@ -98,21 +99,21 @@ body{background:#241a12;font-family:"Baloo 2","PingFang SC","Hiragino Sans GB","
 .expbar>span{display:block;height:100%;background:linear-gradient(90deg,var(--green-hi),var(--green));transform-origin:left;transition:transform .35s;}
 .lv{font-size:11px;font-weight:800;color:var(--ink);}
 .badge{display:flex;align-items:center;gap:2px;flex:1 1 0;justify-content:center;min-width:0;}
-.bic-img{width:28px;height:28px;flex:none;object-fit:contain;}
-.skill-ic{width:42px;height:42px;object-fit:contain;}
-.bv{font-size:13px;font-weight:800;color:var(--ink);line-height:1.05;white-space:nowrap;}
+.bic-img{width:25px;height:25px;flex:none;object-fit:contain;}
+.skill-ic{width:38px;height:38px;object-fit:contain;}
+.bv{font-size:12.5px;font-weight:800;color:var(--ink);line-height:1.05;white-space:nowrap;}
 .bv small{display:block;font-size:8px;color:var(--ink-soft);font-weight:700;}
 
 /* 事件日志（羊皮纸卡片） */
-.log{flex:1;overflow-y:auto;padding:10px 2px 4px;display:flex;flex-direction:column;gap:9px;min-height:0;}
+.log{flex:1;overflow-y:auto;padding:8px 2px 3px;display:flex;flex-direction:column;gap:7px;min-height:0;}
 .log::-webkit-scrollbar{width:0;}
-.daycard{background:linear-gradient(var(--cream),#f8edcf);border:2px solid var(--cream-edge);border-radius:14px;padding:10px 12px;box-shadow:0 3px 0 #00000022;animation:slidein .35s ease-out;position:relative;}
-.daycard.chapter{border:none;box-shadow:none;background:url('../assets/ui_ticket.png') center/100% 100% no-repeat;padding:22px 34px 26px;}
+.daycard{background:linear-gradient(var(--cream),#f8edcf);border:2px solid var(--cream-edge);border-radius:12px;padding:8px 10px;box-shadow:0 3px 0 #00000022;animation:slidein .35s ease-out;position:relative;}
+.daycard.chapter{border:none;box-shadow:none;background:url('../assets/ui_ticket.png') center/100% 100% no-repeat;padding:17px 30px 20px;}
 .ribbon-ch{display:inline-block;background:var(--red);color:#fff;font-weight:800;font-size:13px;padding:2px 12px;border-radius:5px;box-shadow:0 2px 0 var(--red-d);margin-bottom:6px;position:relative;}
 .ribbon-ch::after{content:"";position:absolute;right:-7px;top:0;border:11px solid transparent;border-left-color:var(--red);}
 .daycard .dday{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
-.daycard .dtitle{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:4px;}
-.daycard .dtext{font-size:14px;line-height:1.55;color:var(--ink);font-weight:600;}
+.daycard .dtitle{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:3px;}
+.daycard .dtext{font-size:13px;line-height:1.45;color:var(--ink);font-weight:600;}
 .daycard .dtext b{color:var(--orange-d);}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px;}
 .chip{display:flex;align-items:center;gap:3px;font-size:12px;font-weight:800;padding:2px 8px;border-radius:10px;}
@@ -120,8 +121,8 @@ body{background:#241a12;font-family:"Baloo 2","PingFang SC","Hiragino Sans GB","
 .chip-ic{width:17px;height:17px;object-fit:contain;flex:none;}
 
 /* 底部大按钮 */
-.actionbar{padding:10px 2px 0;z-index:15;}
-.bigbtn{width:100%;height:62px;border:none;background:transparent center/100% 100% no-repeat;font-size:22px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:3px;transition:transform .07s;filter:drop-shadow(0 4px 2px rgba(0,0,0,.28));}
+.actionbar{padding:7px 2px 0;z-index:15;}
+.bigbtn{width:100%;height:54px;border:none;background:transparent center/100% 100% no-repeat;font-size:20px;font-weight:800;cursor:pointer;font-family:inherit;letter-spacing:2px;transition:transform .07s;filter:drop-shadow(0 4px 2px rgba(0,0,0,.28));}
 .bigbtn:active{transform:translateY(4px);}
 .bigbtn.green{background-image:url('../assets/ui_btn_green.png');color:#fff;text-shadow:0 2px 0 #3f6a22;}
 .bigbtn.red{background-image:url('../assets/ui_btn_red.png');color:#fff;text-shadow:0 2px 0 #9a2e1a;}
@@ -129,29 +130,29 @@ body{background:#241a12;font-family:"Baloo 2","PingFang SC","Hiragino Sans GB","
 .bigbtn:disabled{filter:drop-shadow(0 4px 2px rgba(0,0,0,.28)) saturate(.75) brightness(.97);}
 
 /* overlay：三选一 / 转盘 / 结算 */
-.overlay{position:absolute;inset:0;background:#1a120be0;z-index:40;display:flex;flex-direction:column;align-items:center;padding:14px;animation:fadein .25s;}
+.overlay{position:absolute;inset:0;background:#1a120be0;z-index:40;display:flex;flex-direction:column;align-items:center;padding:12px;animation:fadein .25s;}
 .overlay.center{justify-content:center;}
-.hero-pedestal{margin-top:20px;text-align:center;position:relative;}
+.hero-pedestal{margin-top:4px;text-align:center;position:relative;}
 .sparkle{position:absolute;font-size:20px;animation:twinkle 1.6s infinite;}
 .banner{margin:6px 0 8px;background:linear-gradient(#ffb840,#ef8a18);border:4px solid #c8650a;border-radius:16px;padding:9px 36px;position:relative;box-shadow:0 5px 0 #b0560a,inset 0 2px 0 #ffe2a4;}
-.banner.art{width:330px;height:80px;display:flex;align-items:center;justify-content:center;background:url('../assets/ui_banner.png') center/contain no-repeat;border:none;box-shadow:none;padding:0;}
-.banner.art h2{color:#fff;font-size:23px;text-shadow:0 2px 0 #7a1e10,0 0 4px #0006;letter-spacing:3px;margin-top:-4px;}
+.banner.art{width:300px;height:68px;display:flex;align-items:center;justify-content:center;background:url('../assets/ui_banner.png') center/contain no-repeat;border:none;box-shadow:none;padding:0;}
+.banner.art h2{color:#fff;font-size:21px;text-shadow:0 2px 0 #7a1e10,0 0 4px #0006;letter-spacing:2px;margin-top:-4px;}
 .banner h2{color:#fff;font-size:23px;font-weight:800;text-shadow:0 2px 0 #c8650a,0 0 4px #0004;letter-spacing:3px;}
 .banner::before,.banner::after{content:"";position:absolute;bottom:-12px;width:0;height:0;border:11px solid transparent;}
 .banner::before{left:10px;border-top-color:#b0560a;border-right-color:#b0560a;}
 .banner::after{right:10px;border-top-color:#b0560a;border-left-color:#b0560a;}
 .banner.art::before,.banner.art::after{display:none;}
-.sub{color:#ffe6b8;font-size:13px;font-weight:700;margin-bottom:12px;}
-.skillcards{width:100%;display:flex;flex-direction:column;gap:11px;}
-.skillcard{display:flex;gap:11px;align-items:center;background:linear-gradient(var(--cream),#f7ecd0);border:2px solid var(--cream-edge);border-radius:13px;padding:11px;cursor:pointer;box-shadow:0 4px 0 #00000033;transition:transform .08s;position:relative;}
+.sub{color:#ffe6b8;font-size:12px;font-weight:700;margin-bottom:8px;}
+.skillcards{width:100%;display:flex;flex-direction:column;gap:8px;}
+.skillcard{display:flex;gap:9px;align-items:center;background:linear-gradient(var(--cream),#f7ecd0);border:2px solid var(--cream-edge);border-radius:12px;padding:8px 10px;cursor:pointer;box-shadow:0 4px 0 #00000033;transition:transform .08s;position:relative;}
 .skillcard:active{transform:scale(.98);}
-.skillcard .icon{width:56px;height:56px;border-radius:11px;background:#cfd6e2;display:flex;align-items:center;justify-content:center;font-size:30px;border:2px solid #ffffffcc;position:relative;flex:none;}
+.skillcard .icon{width:48px;height:48px;border-radius:10px;background:#cfd6e2;display:flex;align-items:center;justify-content:center;font-size:28px;border:2px solid #ffffffcc;position:relative;flex:none;}
 .ribbon{position:absolute;top:-9px;left:-4px;font-size:10px;font-weight:800;color:#fff;padding:1px 7px;border-radius:6px;box-shadow:0 2px 0 #0003;}
 .ribbon.common{background:var(--common);}.ribbon.rare{background:var(--rare);}.ribbon.epic{background:var(--epic);}.ribbon.legendary{background:var(--legend);}
-.skillcard .sname{font-size:17px;font-weight:800;color:var(--ink);}
-.skillcard .sdesc{font-size:12px;color:var(--ink-soft);font-weight:600;margin-top:2px;}
-.learned{position:absolute;right:14px;bottom:86px;text-align:center;cursor:pointer;z-index:6;}
-.learned img{width:58px;display:block;filter:drop-shadow(0 3px 5px rgba(0,0,0,.45));transition:transform .1s;animation:bob 2.6s ease-in-out infinite;}
+.skillcard .sname{font-size:16px;font-weight:800;color:var(--ink);}
+.skillcard .sdesc{font-size:11.5px;color:var(--ink-soft);font-weight:600;margin-top:1px;}
+.learned{position:absolute;right:14px;bottom:68px;text-align:center;cursor:pointer;z-index:6;}
+.learned img{width:52px;display:block;filter:drop-shadow(0 3px 5px rgba(0,0,0,.45));transition:transform .1s;animation:bob 2.6s ease-in-out infinite;}
 .learned:active img{transform:scale(.9);}
 .learned-count{font-size:11px;color:#ffe6b8;font-weight:800;margin-top:2px;text-shadow:0 1px 2px #000;}
 .ls-panel{background:linear-gradient(var(--cream),#f4e3b8);border:4px solid var(--wood);border-radius:18px;padding:14px;width:92%;max-height:82%;display:flex;flex-direction:column;align-items:center;box-shadow:0 8px 0 var(--wood-d);}
@@ -206,9 +207,9 @@ body{background:#241a12;font-family:"Baloo 2","PingFang SC","Hiragino Sans GB","
 .t2-ticket{transform-origin:center bottom;animation:hippoBreath 3.8s ease-in-out infinite,ticketGlow 2.4s ease-in-out infinite;}
 .t2-row{position:absolute;left:0;right:0;display:flex;justify-content:center;align-items:center;z-index:3;}
 .t2-tagrow{justify-content:flex-end;padding-right:7%;transform:rotate(-3deg);}
-.t2-logo{width:86%;filter:drop-shadow(0 8px 12px rgba(0,0,0,.32));animation:logoIn 1s cubic-bezier(.2,1.5,.45,1) both,logoFloat 4.5s ease-in-out 1s infinite;}
-.t2-tag{width:52%;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3));animation:fadeUp .7s ease-out .8s both;}
-.t2-start{width:66%;animation:fadeUp .6s ease-out .9s both,btnGlow 1.8s ease-in-out 1.6s infinite;}
+.t2-logo{width:76%;filter:drop-shadow(0 8px 12px rgba(0,0,0,.32));animation:logoIn 1s cubic-bezier(.2,1.5,.45,1) both,logoFloat 4.5s ease-in-out 1s infinite;}
+.t2-tag{width:46%;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3));animation:fadeUp .7s ease-out .8s both;}
+.t2-start{width:60%;animation:fadeUp .6s ease-out .9s both,btnGlow 1.8s ease-in-out 1.6s infinite;}
 @keyframes hippoBreath{0%,100%{transform:scale(1)}50%{transform:scale(1.016)}}
 @keyframes ticketGlow{0%,100%{filter:drop-shadow(0 0 1px #ffd84d33)}50%{filter:drop-shadow(0 0 7px #ffd84dcc) drop-shadow(0 0 3px #fff6)}}
 @keyframes logoIn{0%{transform:translateY(-170%) scale(.55);opacity:0}100%{transform:translateY(0) scale(1);opacity:1}}

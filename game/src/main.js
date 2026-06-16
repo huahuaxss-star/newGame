@@ -10,6 +10,8 @@ import { sfx, playBgm, toggleMute, isMuted, pauseBgm, resumeBgm, playVoice, stop
 import * as fx from './fx.js';
 
 const app = document.getElementById('app');
+const GAME_W = 432;
+const GAME_H = 768;
 const SCHOOL_ICON = { nap:'😴', eat:'🍞', weight:'⚖️', lazy:'🛋️' };
 const SCHOOL_NAME = { nap:'午睡流', eat:'干饭流', weight:'体重流', lazy:'摆烂流' };
 const RARITY_CN = { common:'普通', rare:'稀有', epic:'史诗', legendary:'传说' };
@@ -41,7 +43,7 @@ function togglePause() {
 }
 
 function fitGame() {
-  const s = Math.min(window.innerWidth / 420, window.innerHeight / 910);
+  const s = Math.min(window.innerWidth / GAME_W, window.innerHeight / GAME_H);
   document.documentElement.style.setProperty('--gs', String(s));
 }
 window.addEventListener('resize', fitGame);
@@ -77,8 +79,8 @@ function showTitle() {
       <img class="t2-layer" src="assets/title_bg.png" alt="">
       <img class="t2-layer t2-ticket" src="assets/title_ticket.png" alt="">
       <img class="t2-layer t2-hippo" src="assets/title_hippo.png" alt="">
-      <div class="t2-row" style="top:3%"><img class="t2-logo" src="assets/title_logo.png" alt=""></div>
-      <div class="t2-row t2-tagrow" style="top:25%"><img class="t2-tag" src="assets/title_tagline.png" alt=""></div>
+      <div class="t2-row" style="top:1.5%"><img class="t2-logo" src="assets/title_logo.png" alt=""></div>
+      <div class="t2-row t2-tagrow" style="top:20%"><img class="t2-tag" src="assets/title_tagline.png" alt=""></div>
       <div class="t2-row" style="bottom:3.5%"><button class="bigbtn green t2-start" id="startbtn">▶ 轻触开始</button></div>
     </div></div>`;
   document.getElementById('startbtn').onclick = () => { sfx.click(); playBgm('bgm_intro'); runIntro(); };
