@@ -1,0 +1,10 @@
+{
+  "maxRounds": 15,
+  "ultRageCost": 100,
+  "dodgeWindowMs": 700,
+  "weightToDamage": 0.1,
+  "hitstopMs": 90,
+  "shakePx": 8,
+  "level": { "base": 60, "growth": 35, "hpPerLevel": 24, "atkPerLevel": 5, "defPerLevel": 1 },
+  "hippoStart": { "hp": 360, "maxHp": 360, "atk": 40, "def": 10, "weight": 200, "rage": 0, "maxRage": 100, "level": 1, "exp": 0, "expToNext": 60 }
+}

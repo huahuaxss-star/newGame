@@ -1,0 +1,10 @@
+[
+  { "id": "sleep5",     "name": "再睡五分钟",       "school": "nap",    "rarity": "common", "desc": "装睡：有概率免疫一次攻击。",        "effects": { "dodgeChance": 0.25 }, "synergyId": "nap" },
+  { "id": "donttouch",  "name": "别碰我的枕头",     "school": "nap",    "rarity": "rare",   "desc": "被打后反弹部分伤害。",            "effects": { "thorns": 0.3 },       "synergyId": "nap" },
+  { "id": "notfree",    "name": "这份不是免费的吗", "school": "eat",    "rarity": "common", "desc": "每回合吃场上食物回血。",          "effects": { "healPerRound": 20 },  "synergyId": "eat" },
+  { "id": "breakfast",  "name": "早餐时间",         "school": "eat",    "rarity": "rare",   "desc": "吃饱后攻击提升。",                "effects": { "atkOnHeal": 6 },      "synergyId": "eat" },
+  { "id": "weightadv",  "name": "体重优势",         "school": "weight", "rarity": "common", "desc": "体重转化伤害提升。",              "effects": { "weightBonus": 0.3 },  "synergyId": "weight" },
+  { "id": "sitdown",    "name": "坐一下",           "school": "weight", "rarity": "rare",   "desc": "暴走波及全场。",                  "effects": { "ultSplash": true },   "synergyId": "weight" },
+  { "id": "notoday",    "name": "今天不上班",       "school": "lazy",   "rarity": "common", "desc": "不主动时积累反伤。",              "effects": { "lazyThorns": 0.2 },   "synergyId": "lazy" },
+  { "id": "ididntagree","name": "我没答应",         "school": "lazy",   "rarity": "rare",   "desc": "拒绝第一次致命伤。",              "effects": { "denyDeath": true },   "synergyId": "lazy" }
+]

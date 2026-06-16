@@ -1,0 +1,12 @@
+{
+  "title": "少爷，请买单！",
+  "subtitle": "外面的世界很精彩，但早餐要付钱",
+  "panels": [
+    { "img": "intro_1", "dur": 4000 },
+    { "img": "intro_2", "dur": 11200, "voice": "voice_intro2", "voice2": { "key": "voice_b", "at": 7500, "vol": 0.4 } },
+    { "img": "intro_3", "dur": 3600 },
+    { "img": "intro_4", "dur": 3600 },
+    { "black": true, "narr": "就这样，少爷连人带箱，一路滑出了几十公里。", "dur": 3800 },
+    { "img": "intro_6", "dur": 4600, "voice": "voice_meal" }
+  ]
+}

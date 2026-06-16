@@ -1,0 +1,13 @@
+{
+  "title": "第一章 · 第一顿自费早餐",
+  "start": "diner",
+  "nodes": {
+    "diner":         { "type": "event",  "eventId": "e_diner_pay" },
+    "warehouse":     { "type": "event",  "eventId": "e_warehouse_bread" },
+    "battle_thieves":{ "type": "battle", "enemies": ["thief", "thief2"], "winMisunderstanding": 20, "next": "skill1" },
+    "skill1":        { "type": "skill",  "next": "gacha1" },
+    "gacha1":        { "type": "gacha",  "next": "reward" },
+    "reward":        { "type": "event",  "eventId": "e_reward_medal" },
+    "result":        { "type": "result" }
+  }
+}

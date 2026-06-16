@@ -1,0 +1,4 @@
+[
+  { "id": "freeloader",    "name": "霸王餐客人",     "threshold": 20, "buff": { "atk": 4 },         "sideEffect": { "note": "老板们开始记住你的脸" },        "npcQuip": "‘那位大人物，从不带钱——真有派头。’" },
+  { "id": "breadguardian", "name": "面包街守护者",   "threshold": 50, "buff": { "healPerRound": 10 }, "sideEffect": { "extraEnemy": "fakehero" },             "npcQuip": "‘面包街的守护者降临了！’（其实他只是在找剩面包。）" }
+]

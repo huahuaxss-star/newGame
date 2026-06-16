@@ -1,0 +1,38 @@
+[
+  { "id": "music_box", "text": "河马发现一个神秘的音乐盒，打开后那低沉的音乐让他睡了一整晚。", "npcText": "——村民说，那是大师在闭关冥想。", "exp": 8, "effects": [{ "icon": "hp", "label": "最大生命-4%", "stat": "maxHpPct", "v": -0.04 }] },
+  { "id": "free_bun", "text": "路边摊掉了个包子，河马顺势吃了。摊主以为他在帮忙试毒。", "exp": 10, "effects": [{ "icon": "hp", "label": "回血", "stat": "hp", "v": 60 }] },
+  { "id": "good_nap", "text": "河马在草垛上睡了个好觉，醒来神清气爽（指更胖了）。", "exp": 12, "effects": [{ "icon": "hp", "label": "最大生命+6%", "stat": "maxHpPct", "v": 0.06 }] },
+  { "id": "carry_crate", "text": "河马被误认为搬运工，扛了一上午货。意外练出了力气。", "npcText": "——‘那位大师在以劳修心。’", "exp": 14, "effects": [{ "icon": "atk", "label": "攻击+5", "stat": "atk", "v": 5 }] },
+  { "id": "shiny_shield", "text": "河马把一口锅盖顶在头上挡太阳，居然挺结实。", "exp": 8, "effects": [{ "icon": "def", "label": "防御+3", "stat": "def", "v": 3 }] },
+  { "id": "festival", "text": "镇上在办节庆，河马排错队领了一堆吃的。", "exp": 16, "effects": [{ "icon": "hp", "label": "回满", "stat": "hp", "v": 9999 }] },
+  { "id": "rain", "text": "突然下雨，河马没找到屋檐，淋了个透。打了个喷嚏。", "exp": 6, "effects": [{ "icon": "def", "label": "防御-2", "stat": "def", "v": -2 }] },
+  { "id": "elf_gift", "text": "河马在山洞里挪开块石头找面包，顺手放出了被困的精灵。精灵感激地塞给他一件宝贝。", "npcText": "——‘解救了被封印的古灵！’", "exp": 18, "effects": [{ "icon": "hp", "label": "最大生命+7%", "stat": "maxHpPct", "v": 0.07 }] },
+  { "id": "lost_sign", "text": "河马看不懂路牌，原地转了三圈。围观群众以为他在堪舆风水。", "exp": 10, "effects": [] },
+  { "id": "goddess", "text": "森林女神回应了河马（其实他只是在打呼噜），赐予了祝福。", "exp": 20, "effects": [{ "icon": "atk", "label": "攻击+4", "stat": "atk", "v": 4 }] },
+
+  { "id": "stew", "text": "路边一锅来历不明的炖菜，冒着可疑的泡。", "npcText": "——河马面无表情地盯着它。",
+    "choices": [
+      { "label": "干了这锅", "outcome": { "exp": 12, "stats": { "maxHp": 30, "hp": 30 }, "misunderstanding": 15, "log": "意外地好吃！河马最大生命+30。" } },
+      { "label": "算了，绕开", "outcome": { "exp": 4, "misunderstanding": 5, "log": "河马谨慎地绕开了。一无所获，但很安全。" } }
+    ] },
+  { "id": "chest", "text": "草丛里一个金灿灿的箱子，锁看起来一拍就开。",
+    "choices": [
+      { "label": "一屁股坐上去", "outcome": { "exp": 10, "stats": { "atk": 7 }, "misunderstanding": 20, "log": "箱子被压开了，里面是把好叉子。攻击+7。" } },
+      { "label": "总觉得有诈，不碰", "outcome": { "exp": 6, "stats": { "def": 3 }, "misunderstanding": 5, "log": "河马警惕地走开。防御+3（谨慎使人安心）。" } }
+    ] },
+  { "id": "toll", "text": "一座小桥要过路费。守桥的是只一脸严肃的獾。",
+    "choices": [
+      { "label": "硬挤过去", "outcome": { "exp": 8, "stats": { "hp": -40 }, "misunderstanding": 25, "log": "河马太宽，把桥栏挤裂了，自己也磕了下。生命-40，但獾被气跑了。" } },
+      { "label": "蹚水过河", "outcome": { "exp": 10, "stats": { "maxHp": 20, "hp": 20 }, "misunderstanding": 8, "log": "河马泡了个舒服的澡。最大生命+20。" } }
+    ] },
+  { "id": "challenger", "text": "一名自称剑圣的家伙拦路要单挑，摆出了帅气的起手式。",
+    "choices": [
+      { "label": "坐下来打个哈欠", "outcome": { "exp": 14, "stats": { "atk": 6 }, "misunderstanding": 30, "log": "剑圣等不到河马出招，自己累到扭伤退场了。攻击+6。" } },
+      { "label": "递给他半块饼干", "outcome": { "exp": 10, "stats": { "def": 4 }, "misunderstanding": 18, "log": "剑圣感动哭了，认河马做大哥。防御+4。" } }
+    ] },
+  { "id": "merchant", "text": "流动商人摆开摊子，说今天对‘贵客’有特别优惠。",
+    "choices": [
+      { "label": "亮出马戏团餐券", "outcome": { "exp": 8, "stats": { "atk": 5, "def": 2 }, "misunderstanding": 22, "log": "商人没见过这券，以为是什么贵族信物，白送了装备。攻击+5 防御+2。" } },
+      { "label": "假装看不懂走开", "outcome": { "exp": 6, "stats": { "maxHp": 15, "hp": 15 }, "misunderstanding": 6, "log": "河马走开时顺了个试吃。最大生命+15。" } }
+    ] }
+]

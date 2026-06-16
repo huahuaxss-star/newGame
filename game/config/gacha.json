@@ -1,0 +1,9 @@
+{
+  "segments": [
+    { "id": "exp",     "label": "经验+120",          "weight": 28, "reward": { "exp": 120 } },
+    { "id": "atk",     "label": "攻击+8",            "weight": 22, "reward": { "stats": { "atk": 8 } } },
+    { "id": "heal",    "label": "回满",              "weight": 18, "reward": { "healFull": true } },
+    { "id": "skill",   "label": "随机技能",          "weight": 16, "reward": { "skill": true } },
+    { "id": "dessert", "label": "一块甜点（并没有用）", "weight": 16, "reward": { "flavor": "河马很满意，但还是没吃到正餐。" } }
+  ]
+}

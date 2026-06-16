@@ -1,0 +1,5 @@
+{
+  "thief":    { "id": "thief",    "name": "溜门小盗",        "sprite": "enemy_thief",    "exp": 35, "stats": { "hp": 130, "maxHp": 130, "atk": 18, "def": 4,  "weight": 40, "rage": 0, "maxRage": 100 } },
+  "thief2":   { "id": "thief2",   "name": "惯偷老鼠",        "sprite": "enemy_thief2",   "exp": 50, "stats": { "hp": 190, "maxHp": 190, "atk": 22, "def": 6,  "weight": 45, "rage": 0, "maxRage": 100 } },
+  "fakehero": { "id": "fakehero", "name": "慕名挑战的冒险者", "sprite": "enemy_fakehero", "exp": 90, "stats": { "hp": 240, "maxHp": 240, "atk": 30, "def": 10, "weight": 70, "rage": 0, "maxRage": 100 } }
+}

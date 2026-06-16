@@ -1,0 +1,9 @@
+.env
+.DS_Store
+node_modules/
+.agents/
+.claude/
+.codex/
+frames/
+/audio.*
+*.log

@@ -1,0 +1,14 @@
+{
+  "title": "第一章 · 第一顿自费早餐",
+  "days": [
+    { "day": 1, "type": "event", "text": "河马从一个魔术箱里爬出来，发现自己离马戏团很远了。他决定先找点吃的。", "exp": 10, "effects": [] },
+    { "day": 2, "type": "event", "text": "河马走进一家早餐店，像在马戏团一样直接坐下开吃。老板愣住了。", "exp": 10, "effects": [{ "icon": "atk", "label": "攻击+3", "stat": "atk", "v": 3 }] },
+    { "day": 3, "type": "event", "text": "吃完，河马第一次知道：食物，要钱。老板叫他去仓库搬货抵债。", "exp": 5, "effects": [] },
+    { "day": 4, "type": "battle", "enemies": ["thief"], "intro": "仓库货堆后面窸窸窣窣的——河马扒开找面包，撞见了盗贼。" },
+    { "day": 5, "type": "event", "text": "河马发现一个神秘的音乐盒，打开后那低沉的音乐让他睡了一整晚。", "exp": 8, "effects": [{ "icon": "hp", "label": "最大生命-5%", "stat": "maxHpPct", "v": -0.05 }] },
+    { "day": 6, "type": "battle", "enemies": ["thief2"], "intro": "另一只盗贼不服气，又摸了回来。" },
+    { "day": 7, "type": "wheel", "text": "镇民塞给河马一张甜点券，让他转个运。" },
+    { "day": 8, "type": "battle", "enemies": ["thief", "thief2"], "intro": "贼窝头目带着帮手来寻仇了。" },
+    { "day": 9, "type": "event", "text": "盗贼被一锅端。镇民往河马脖子上挂了枚奖章，高呼“面包街的守护者”。河马看着奖章，确认它不能吃。", "exp": 20, "effects": [], "end": true }
+  ]
+}
