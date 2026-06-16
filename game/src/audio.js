@@ -1,34 +1,67 @@
 // 用 WebAudio 合成占位音效 —— 无需任何音频文件即可有声。后续可换真实音效。
 let ctx = null;
+const AudioContextCtor = globalThis.AudioContext || globalThis.webkitAudioContext;
 function ac() {
-  if (!ctx && typeof AudioContext !== 'undefined') ctx = new AudioContext();
-  if (ctx && ctx.state === 'suspended') ctx.resume();
+  if (!ctx && AudioContextCtor) ctx = new AudioContextCtor();
   return ctx;
 }
 
-function tone({ freq = 220, dur = 0.12, type = 'sine', gain = 0.18, slideTo = null }) {
+function unlockAudio() {
+  const c = ac(); if (!c) return;
+  const resume = c.state === 'suspended' ? c.resume().catch(() => {}) : Promise.resolve();
+  resume.then(() => {
+    try {
+      const src = c.createBufferSource();
+      src.buffer = c.createBuffer(1, 1, c.sampleRate);
+      const g = c.createGain();
+      g.gain.value = 0.0001;
+      src.connect(g).connect(c.destination);
+      src.start(0);
+    } catch (e) {}
+    if (bgm && bgmKey && !muted && bgm.paused) bgm.play().catch(() => {});
+  });
+}
+
+if (typeof window !== 'undefined') {
+  ['pointerdown', 'touchstart', 'keydown'].forEach((eventName) => {
+    window.addEventListener(eventName, unlockAudio, { capture: true, passive: true });
+  });
+}
+
+function withAudio(fn) {
   const c = ac(); if (!c || muted) return;
-  const t = c.currentTime;
-  const osc = c.createOscillator(); const g = c.createGain();
-  osc.type = type; osc.frequency.setValueAtTime(freq, t);
-  if (slideTo) osc.frequency.exponentialRampToValueAtTime(Math.max(1, slideTo), t + dur);
-  g.gain.setValueAtTime(gain, t);
-  g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-  osc.connect(g).connect(c.destination);
-  osc.start(t); osc.stop(t + dur);
+  if (c.state === 'suspended') {
+    c.resume().then(() => { if (!muted && c.state === 'running') fn(c); }).catch(() => {});
+    return;
+  }
+  fn(c);
+}
+
+function tone({ freq = 220, dur = 0.12, type = 'sine', gain = 0.18, slideTo = null }) {
+  withAudio((c) => {
+    const t = c.currentTime;
+    const osc = c.createOscillator(); const g = c.createGain();
+    osc.type = type; osc.frequency.setValueAtTime(freq, t);
+    if (slideTo) osc.frequency.exponentialRampToValueAtTime(Math.max(1, slideTo), t + dur);
+    g.gain.setValueAtTime(gain, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    osc.connect(g).connect(c.destination);
+    osc.start(t); osc.stop(t + dur);
+  });
 }
 // 白噪声爆破（撞击/呼啸感）
 function noise({ dur = 0.15, gain = 0.2, lp = 1000 }) {
-  const c = ac(); if (!c || muted) return;
-  const n = Math.floor(c.sampleRate * dur);
-  const buf = c.createBuffer(1, n, c.sampleRate); const d = buf.getChannelData(0);
-  for (let i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
-  const src = c.createBufferSource(); src.buffer = buf;
-  const f = c.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = lp;
-  const g = c.createGain(); g.gain.setValueAtTime(gain, c.currentTime);
-  g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + dur);
-  src.connect(f).connect(g).connect(c.destination);
-  src.start(); src.stop(c.currentTime + dur);
+  withAudio((c) => {
+    const n = Math.floor(c.sampleRate * dur);
+    const buf = c.createBuffer(1, n, c.sampleRate); const d = buf.getChannelData(0);
+    for (let i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
+    const src = c.createBufferSource(); src.buffer = buf;
+    const f = c.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = lp;
+    const g = c.createGain(); g.gain.setValueAtTime(gain, c.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + dur);
+    src.connect(f).connect(g).connect(c.destination);
+    src.start(); src.stop(c.currentTime + dur);
+  });
 }
 const seq = (notes, step, opt = {}) => notes.forEach((f, i) => setTimeout(() => tone({ freq: f, dur: opt.dur || 0.16, type: opt.type || 'triangle', gain: opt.gain || 0.2 }), i * step));
 
